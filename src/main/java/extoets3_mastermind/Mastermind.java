@@ -23,11 +23,13 @@ public class Mastermind {
     }
 
     public int[] processGuess(String[] guessArray){
-        if(guessArray.length == 0 || this.arrOfStrings.length == 0 || (guessArray.length != this.arrOfStrings.length)) return null;
-        int[] result = new int[arrOfStrings.length];
-        for(int i = 0; i < guessArray.length; i++){
+        int guessArraySize = guessArray.length;
+        int answerArraySize = this.arrOfStrings.length;
+        if(answerArraySize == 0 || (guessArraySize != answerArraySize)) return null;
+        int[] result = new int[answerArraySize];
+        for(int i = 0; i < guessArraySize; i++){
             String guess = guessArray[i];
-            for(int j = 0; j < this.arrOfStrings.length; j++ ){
+            for(int j = 0; j < answerArraySize; j++ ){
                 String answer = this.arrOfStrings[j];
                 if(guess.equals(answer) && i == j) {
                     result[i] = Mastermind.RESULT_OK;
@@ -38,6 +40,7 @@ public class Mastermind {
                     break;
                 }
                 else result[i] = Mastermind.RESULT_BAD;
+
                 }
             }
         return result;
