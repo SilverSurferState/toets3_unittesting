@@ -24,12 +24,9 @@ public class FriendshipUpdater {
         int friendshipLevel = friend.friendshipLevel+1;
         int nrOfStars = friend.nrOfStars;
 
-        if (nrOfStars == 0) {
+        if (nrOfStars == 0 || (nrOfStars == 1 && friendshipLevel == 10)) {
             friendshipLevel = 0;
             nrOfStars++;
-        } else if (nrOfStars == 1 && friendshipLevel == 10) {
-                    nrOfStars++;
-                    friendshipLevel = 0;
         } else if (nrOfStars == 2 && friendshipLevel == 30) {
                     nrOfStars = nrOfStars +1;
                     friendshipLevel = 0;
