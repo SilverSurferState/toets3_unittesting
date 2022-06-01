@@ -35,13 +35,10 @@ public class FriendshipUpdater {
         if (nrOfStars == 0) {
             friendshipLevel = 0;
             nrOfStars++;
-        } else if (nrOfStars == 1) {
-                if (friendshipLevel == 10) {
+        } else if (nrOfStars == 1 && friendshipLevel == 10) {
                     nrOfStars++;
                     friendshipLevel = 0;
-                }
-            } else if (nrOfStars == 2)
-                    if (friendshipLevel == 30) {
+            } else if (nrOfStars == 2 && friendshipLevel == 30) {
                         nrOfStars = nrOfStars +1;
                         friendshipLevel = 0;
                     }
