@@ -21,10 +21,9 @@ public class FriendshipUpdater {
 
 
     private void doIt(Friend friend) {
-        int friendshipLevel = friend.friendshipLevel;
+        int friendshipLevel = friend.friendshipLevel+1;
         int nrOfStars = friend.nrOfStars;
 
-        friendshipLevel++;
         if (nrOfStars == 0) {
             friendshipLevel = 0;
             nrOfStars++;
