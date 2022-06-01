@@ -39,7 +39,6 @@ public class FriendshipUpdater {
                 if (counters == 10) {
                     i++;
                     counters = 0;
-                    result = false;
                 }
             } else {
                 if (b) {
