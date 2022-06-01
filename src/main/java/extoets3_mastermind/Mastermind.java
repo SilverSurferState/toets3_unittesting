@@ -12,5 +12,13 @@ public class Mastermind {
     public static final int RESULT_ALMOST = 1;
     public static final int RESULT_OK = 2;
 
+    private final String[] arrOfStrings;
 
+    public Mastermind(int arraySize) {
+        this.arrOfStrings = new String[arraySize];
+    }
+
+    public String[] getArrOfStrings() {
+        return arrOfStrings;
+    }
 }
