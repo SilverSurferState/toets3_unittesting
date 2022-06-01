@@ -14,11 +14,13 @@ public class Mastermind {
 
     private final String[] arrOfStrings;
 
-    public Mastermind(int arraySize) {
-        this.arrOfStrings = new String[arraySize];
+    public Mastermind(String[] stringArray) {
+        this.arrOfStrings = stringArray;
     }
 
     public String[] getArrOfStrings() {
         return arrOfStrings;
     }
+
+
 }

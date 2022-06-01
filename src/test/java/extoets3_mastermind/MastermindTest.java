@@ -9,19 +9,15 @@ class MastermindTest {
 
     @Test
     public void testNewMastermind(){
-        Mastermind mastermind = new Mastermind( 5 );
+        String[] arr = new String[5];
+        Mastermind mastermind = new Mastermind( arr );
         assertEquals(5, mastermind.getArrOfStrings().length);
     }
 
     @Test
     public void testNewMastermindFilled(){
-        Mastermind mastermind = new Mastermind( 7 );
-        String[] arr = mastermind.getArrOfStrings();
-        arr[0] = Mastermind.RED;
-        arr[1] = Mastermind.GREEN;
-        arr[2] = Mastermind.BLUE;
-        arr[3] = Mastermind.ORANGE;
-        arr[4] = Mastermind.BLACK;
+        String[] arr = {Mastermind.RED, Mastermind.BLUE, Mastermind.GREEN, Mastermind.ORANGE, Mastermind.WHITE, Mastermind.BLUE, Mastermind.GREEN};
+        Mastermind mastermind = new Mastermind(arr);
         assertEquals(7, mastermind.getArrOfStrings().length);
         assertEquals("orange", arr[3]);
     }
