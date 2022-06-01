@@ -43,7 +43,6 @@ public class FriendshipUpdater {
                     if (!(!result || !b)) {
                         friend.friendshipLevel = counters * 2;
                     }
-                } else {
                 }
             } else {
                 if (b) {
