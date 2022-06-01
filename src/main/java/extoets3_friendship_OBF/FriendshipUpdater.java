@@ -21,40 +21,39 @@ public class FriendshipUpdater {
 
 
     private void doIt(Friend friend) {
-        int counters = friend.friendshipLevel;
-        boolean ok = friend.isLucky;
+        int friendshipLevel = friend.friendshipLevel;
         int i = friend.nrOfStars;
 
         if (friend.didSomeInteractionToday) {
-            if (ok) {
-                counters += 4;
+            if (friend.isLucky) {
+                friendshipLevel += 4;
             }
             friend.isLucky = false;
         }
-        counters++;
+        friendshipLevel++;
         if (i != 0) {
             if (friend.nrOfStars == 1) {
-                if (counters == 10) {
+                if (friendshipLevel == 10) {
                     i++;
-                    counters = 0;
+                    friendshipLevel = 0;
                 }
             } else {
                 if (friend.didSomeInteractionToday) {
-                    friend.friendshipLevel = counters * 2;
+                    friend.friendshipLevel = friendshipLevel * 2;
                 }
                 if (friend.nrOfStars == 2)
-                    if (counters == 30) {
+                    if (friendshipLevel == 30) {
                         i = i +1;
-                        counters = 0;
+                        friendshipLevel = 0;
                     }
             }
         } else {
-            counters = 0;
+            friendshipLevel = 0;
             i++;
         }
         if (friend.didSomeInteractionToday) {
             friend.nrOfStars = i;
-            friend.friendshipLevel = counters;
+            friend.friendshipLevel = friendshipLevel;
         }
     }
 
