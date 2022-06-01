@@ -51,7 +51,7 @@ public class FriendshipUpdater {
                         }
                 }
             } else {
-                if (result && b) {
+                if (b) {
                     friend.friendshipLevel = counters * 2;
                 }
                 if (friend.nrOfStars == 2)
@@ -63,7 +63,6 @@ public class FriendshipUpdater {
         } else {
             counters = 0;
             i++;
-            result = false;
         }
         if (b) {
             friend.nrOfStars = i;
