@@ -21,12 +21,11 @@ public class FriendshipUpdater {
 
 
     private void doIt(Friend friend) {
-        boolean b = friend.didSomeInteractionToday;
         int counters = friend.friendshipLevel;
         boolean ok = friend.isLucky;
         int i = friend.nrOfStars;
 
-        if (b) {
+        if (friend.didSomeInteractionToday) {
             if (ok) {
                 counters += 4;
             }
@@ -40,7 +39,7 @@ public class FriendshipUpdater {
                     counters = 0;
                 }
             } else {
-                if (b) {
+                if (friend.didSomeInteractionToday) {
                     friend.friendshipLevel = counters * 2;
                 }
                 if (friend.nrOfStars == 2)
@@ -53,7 +52,7 @@ public class FriendshipUpdater {
             counters = 0;
             i++;
         }
-        if (b) {
+        if (friend.didSomeInteractionToday) {
             friend.nrOfStars = i;
             friend.friendshipLevel = counters;
         }
