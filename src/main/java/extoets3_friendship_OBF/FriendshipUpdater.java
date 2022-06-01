@@ -15,21 +15,20 @@ public class FriendshipUpdater {
 
     public void update() {
         for (Friend friend : friends) {
-            doIt(friend);
+            setFriendStatus(friend);
         }
     }
 
 
-    private void doIt(Friend friend) {
+    private void setFriendStatus(Friend friend) {
         int friendshipLevel = friend.friendshipLevel+1;
         int nrOfStars = friend.nrOfStars;
-
-        if (nrOfStars == 0 || (nrOfStars == 1 && friendshipLevel == 10) || nrOfStars == 2 && friendshipLevel == 30) {
+        if (friend.isLucky) friendshipLevel += 4;
+        if (nrOfStars == 0 || (nrOfStars == 1 && friendshipLevel == 10) || (nrOfStars == 2 && friendshipLevel == 30)) {
             friendshipLevel = 0;
             nrOfStars++;
         }
         if (friend.didSomeInteractionToday) {
-            if (friend.isLucky) friendshipLevel += 4;
             friend.isLucky = false;
             friend.nrOfStars = nrOfStars;
             friend.friendshipLevel = friendshipLevel;
