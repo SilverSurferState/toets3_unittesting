@@ -44,11 +44,6 @@ public class FriendshipUpdater {
                         friend.friendshipLevel = counters * 2;
                     }
                 } else {
-                    if (friend.nrOfStars == 2)
-                        if (counters == 30) {
-                            counters = 0;
-                            i++;
-                        }
                 }
             } else {
                 if (b) {
