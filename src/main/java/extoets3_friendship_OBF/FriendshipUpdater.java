@@ -15,59 +15,23 @@ public class FriendshipUpdater {
 
     public void update() {
         for (Friend friend : friends) {
-            doIt(friend);
+            setFriendStatus(friend);
         }
     }
 
 
-    private void doIt(Friend friend) {
-        boolean b = friend.didSomeInteractionToday;
-        int counters = friend.friendshipLevel;
-        boolean ok = friend.isLucky;
-        int i = friend.nrOfStars;
-        boolean result = true;
-
-        if (b) {
-            if (ok) {
-                counters += 4;
-            }
+    private void setFriendStatus(Friend friend) {
+        int friendshipLevel = friend.friendshipLevel+1;
+        int nrOfStars = friend.nrOfStars;
+        if (friend.isLucky) friendshipLevel += 4;
+        if (nrOfStars == 0 || (nrOfStars == 1 && friendshipLevel == 10) || (nrOfStars == 2 && friendshipLevel == 30)) {
+            friendshipLevel = 0;
+            nrOfStars++;
+        }
+        if (friend.didSomeInteractionToday) {
             friend.isLucky = false;
-        }
-        counters++;
-        if (i != 0) {
-            if (friend.nrOfStars == 1) {
-                if (counters == 10) {
-                    i++;
-                    counters = 0;
-                    result = false;
-                    if (!(!result || !b)) {
-                        friend.friendshipLevel = counters * 2;
-                    }
-                } else {
-                    if (friend.nrOfStars == 2)
-                        if (counters == 30) {
-                            counters = 0;
-                            i++;
-                        }
-                }
-            } else {
-                if (result && b) {
-                    friend.friendshipLevel = counters * 2;
-                }
-                if (friend.nrOfStars == 2)
-                    if (counters == 30) {
-                        i = i +1;
-                        counters = 0;
-                    }
-            }
-        } else {
-            counters = 0;
-            i++;
-            result = false;
-        }
-        if (b) {
-            friend.nrOfStars = i;
-            friend.friendshipLevel = counters;
+            friend.nrOfStars = nrOfStars;
+            friend.friendshipLevel = friendshipLevel;
         }
     }
 
