@@ -47,4 +47,12 @@ class MastermindTest {
         assertArrayEquals(null, mastermind.processGuess(guess));
     }
 
+    @Test
+    public void testProcessGuessWithEverythingCorrect(){
+        String[] arr = {Mastermind.RED, Mastermind.BLUE, Mastermind.GREEN, Mastermind.ORANGE, Mastermind.WHITE};
+        Mastermind mastermind = new Mastermind(arr);
+        String[] guess = {Mastermind.RED, Mastermind.BLUE, Mastermind.GREEN, Mastermind.ORANGE, Mastermind.WHITE};
+        assertArrayEquals(new int[]{2,2,2,2,2}, mastermind.processGuess(guess));
+    }
+
 }
