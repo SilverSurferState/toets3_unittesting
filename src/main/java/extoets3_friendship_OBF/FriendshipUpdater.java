@@ -25,7 +25,6 @@ public class FriendshipUpdater {
         int counters = friend.friendshipLevel;
         boolean ok = friend.isLucky;
         int i = friend.nrOfStars;
-        boolean result = true;
 
         if (b) {
             if (ok) {
