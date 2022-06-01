@@ -2,6 +2,9 @@ package extoets3_mastermind;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MastermindTest {
@@ -22,6 +25,14 @@ class MastermindTest {
         assertEquals("orange", arr[3]);
     }
 
-
+    @Test
+    public void testProcessGuess(){
+        String[] arr = {Mastermind.RED, Mastermind.BLUE, Mastermind.GREEN, Mastermind.ORANGE, Mastermind.WHITE};
+        Mastermind mastermind = new Mastermind(arr);
+        String[] guess = {Mastermind.RED, Mastermind.GREEN, Mastermind.BLUE, Mastermind.ORANGE, Mastermind.WHITE};
+        System.out.println(Arrays.toString(mastermind.processGuess(guess)));
+        System.out.println(Arrays.toString(mastermind.getArrOfStrings()));
+        assertArrayEquals(new int[]{2, 1, 1, 2, 2}, mastermind.processGuess(guess));
+    }
 
 }
