@@ -32,7 +32,10 @@ public class FriendshipUpdater {
             friend.friendshipLevel = friendshipLevel * 2;
         }
         friendshipLevel++;
-        if (nrOfStars != 0) {
+        if (nrOfStars == 0) {
+            friendshipLevel = 0;
+            nrOfStars++;
+        } else {
             if (friend.nrOfStars == 1) {
                 if (friendshipLevel == 10) {
                     nrOfStars++;
@@ -45,9 +48,6 @@ public class FriendshipUpdater {
                         friendshipLevel = 0;
                     }
             }
-        } else {
-            friendshipLevel = 0;
-            nrOfStars++;
         }
         if (friend.didSomeInteractionToday) {
             friend.nrOfStars = nrOfStars;
