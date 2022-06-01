@@ -24,13 +24,10 @@ public class FriendshipUpdater {
         int friendshipLevel = friend.friendshipLevel+1;
         int nrOfStars = friend.nrOfStars;
 
-        if (nrOfStars == 0 || (nrOfStars == 1 && friendshipLevel == 10)) {
+        if (nrOfStars == 0 || (nrOfStars == 1 && friendshipLevel == 10) || nrOfStars == 2 && friendshipLevel == 30) {
             friendshipLevel = 0;
             nrOfStars++;
-        } else if (nrOfStars == 2 && friendshipLevel == 30) {
-                    nrOfStars = nrOfStars +1;
-                    friendshipLevel = 0;
-                    }
+        }
         if (friend.didSomeInteractionToday) {
             if (friend.isLucky) friendshipLevel += 4;
             friend.isLucky = false;
