@@ -55,4 +55,20 @@ class MastermindTest {
         assertArrayEquals(new int[]{2,2,2,2,2}, mastermind.processGuess(guess));
     }
 
+    @Test
+    public void testProcessGuessWithEverythingInDifferentPlace(){
+        String[] arr = {Mastermind.RED, Mastermind.BLUE, Mastermind.GREEN, Mastermind.ORANGE, Mastermind.WHITE};
+        Mastermind mastermind = new Mastermind(arr);
+        String[] guess = {Mastermind.BLUE, Mastermind.RED, Mastermind.ORANGE, Mastermind.WHITE, Mastermind.GREEN};
+        assertArrayEquals(new int[]{1,1,1,1,1}, mastermind.processGuess(guess));
+    }
+
+    @Test
+    public void testProcessGuessLength3Array(){
+        String[] arr = {Mastermind.RED, Mastermind.BLUE, Mastermind.GREEN};
+        Mastermind mastermind = new Mastermind(arr);
+        String[] guess = {Mastermind.BLUE, Mastermind.RED, Mastermind.ORANGE};
+        assertArrayEquals(new int[]{1,1,0}, mastermind.processGuess(guess));
+    }
+
 }
